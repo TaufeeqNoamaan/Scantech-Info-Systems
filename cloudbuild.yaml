@@ -49,11 +49,18 @@ substitutions:
   # Service / image name.
   _SERVICE: scantech-info-systems
 
-  # ⚠️ SET THIS. Public origin of the deployed site, e.g.
-  #   https://www.scantechinfosystems.com
-  # It is inlined into the bundle at build time by Next.js, so changing it on
-  # the Cloud Run service afterwards has no effect — the image must be rebuilt.
-  _SITE_URL: ""
+  # Public origin of the deployed site. It is inlined into the bundle at build
+  # time by Next.js, so changing it on the Cloud Run service afterwards has no
+  # effect — the image must be rebuilt.
+  #
+  # This must be the same host that the Cloud Run domain mapping serves. A
+  # domain mapping only changes the inbound hostname; it cannot rewrite the
+  # canonical tags, sitemap.xml or robots.txt that were baked in here.
+  #
+  # No `www` — the apex is the canonical host. If the mapping ends up serving
+  # `www.scantechinfosystems.com` as the primary host instead, change this value
+  # to match it and rebuild, or the two will disagree.
+  _SITE_URL: "https://scantechinfosystems.com"
 
 steps:
   # ── Build ────────────────────────────────────────────────────────────────
