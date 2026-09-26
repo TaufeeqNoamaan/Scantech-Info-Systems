@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Scantech Info Systems | Enterprise IT Infrastructure, Hardware AMC &amp; Commercial Security</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base {
+      html, body { 
+        margin: 0; 
+        padding: 0;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        color: #334155;
+      }
+      body { -webkit-font-smoothing: antialiased; }
+      h1, h2, h3, h4, h5, h6 {
+        letter-spacing: -0.028em;
+      }
+    }
+    
+    .carousel-slide {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .carousel-slide.active {
+      opacity: 1;
+      visibility: visible;
+      position: relative;
+      pointer-events: auto;
+    }
+
+    @keyframes slideProgress {
+      from { width: 0%; }
+      to { width: 100%; }
+    }
+    .progress-bar-active {
+      animation: slideProgress 6.5s linear forwards;
+    }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            midnight: "#141428",
+            crimson: "#f03c50",
+            "crimson-hover": "#dc293e",
+            surface: "#ffffff",
+            "surface-low": "#f8fafc",
+            "surface-mid": "#f1f5f9",
+            "border-subtle": "#e2e8f0"
+          },
+          fontFamily: {
+            sans: ["'Inter'", "-apple-system", "BlinkMacSystemFont", "'Segoe UI'", "Roboto", "sans-serif"],
+            brand: ["'Plus Jakarta Sans'", "'Inter'", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-slate-700 antialiased selection:bg-[#f03c50] selection:text-white">
+<!-- Main Navigation Header (Top utility bar completely removed as requested) -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-border-subtle shadow-xs transition-all duration-200">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<!-- Brand Logo -->
+<a class="flex items-center gap-3 shrink-0 group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-midnight rounded py-1" href="#">
+<div class="w-40 sm:w-48 flex items-center">
+<img alt="Scantech Info Systems" class="h-10 w-auto object-contain object-left transition-transform group-hover:scale-[1.01]" src="https://lh3.googleusercontent.com/aida/AEtjO1VXk4GLAIvYzjW9AAR1Qm4coUxHjmWj1FD5y_ycXLoIRFe5pqHSwcLIo2oyjuzNwKmKL3oQzKpWv6AeWf24ICu9r1TzK4ObB7dPTQXo1NssHBT_4Lxp_m3NI0PnzjQmIKwuV1aH5Htq83fTnu_5ncJRhmUJpDyM7Npc1MWQ9YX8vS9mak4_zcL7Cz5zRQEqwmHAZ_t48OIqtXxHTrvz9lwbBNNb-2w2QDKo-8Li6tFPXjldEEiNe4Yc-tg"/>
+</div>
+</a>
+<!-- Desktop Navigation Menu -->
+<nav class="hidden xl:flex items-center gap-7 text-[14px] font-semibold text-slate-600">
+<a class="hover:text-midnight transition-colors py-1.5 focus:outline-none focus:text-midnight" href="#services">Services &amp; Capabilities</a>
+<a class="hover:text-midnight transition-colors py-1.5 focus:outline-none focus:text-midnight" href="#hardware-amc">Hardware AMC</a>
+<a class="hover:text-midnight transition-colors py-1.5 focus:outline-none focus:text-midnight" href="#cabling">Structured Cabling</a>
+<a class="hover:text-midnight transition-colors py-1.5 focus:outline-none focus:text-midnight" href="#security">CCTV &amp; Security</a>
+<a class="hover:text-midnight transition-colors py-1.5 focus:outline-none focus:text-midnight" href="#why-scantech">Why Scantech</a>
+<a class="hover:text-midnight transition-colors py-1.5 focus:outline-none focus:text-midnight" href="#case-studies">Client Case Studies</a>
+</nav>
+<!-- Action Button -->
+<div class="flex items-center gap-3">
+<a class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-md bg-midnight text-white text-xs sm:text-sm font-semibold tracking-wide shadow-sm hover:bg-[#1f1f3a] hover:shadow-md hover:ring-1 hover:ring-crimson/50 transition-all duration-200 group" href="#contact">
+<span>Request On-Site Consultation</span>
+<span class="material-symbols-outlined text-[17px] text-crimson transition-transform duration-200 group-hover:translate-x-0.5">arrow_forward</span>
+</a>
+</div>
+</div>
+</header>
+<main class="w-full">
+<!-- HERO SECTION WITH FUNCTIONAL INTERACTIVE CAROUSEL -->
+<section class="relative bg-gradient-to-b from-white via-surface-low to-white border-b border-border-subtle overflow-hidden">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-20">
+<!-- Carousel Frame -->
+<div class="relative min-h-[580px] sm:min-h-[520px] lg:min-h-[500px]">
+<!-- SLIDE 1 -->
+<div class="carousel-slide active" data-slide-index="0">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+<!-- Content -->
+<div class="lg:col-span-6 flex flex-col items-start gap-5">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-border-subtle shadow-2xs">
+<span class="w-2 h-2 rounded-full bg-crimson animate-pulse"></span>
+<span class="text-[11px] font-bold tracking-[0.08em] uppercase text-midnight">Enterprise IT Infrastructure &amp; AMC</span>
+</div>
+<h1 class="text-3xl sm:text-4xl lg:text-[44px] font-bold text-midnight leading-[1.16] tracking-tight">
+                  Reliable IT Infrastructure, Hardware AMC &amp; Turnkey Networking
+                </h1>
+<p class="text-slate-600 text-[15px] sm:text-[16px] leading-[1.6] max-w-xl font-normal">
+                  Single-source engineering for mission-critical corporate workspaces, multi-location office networks, and comprehensive computer hardware maintenance contracts.
+                </p>
+<div class="flex flex-wrap items-center gap-3.5 pt-2">
+<a class="px-6 py-3 rounded-md bg-midnight text-white font-semibold text-sm shadow-sm hover:bg-[#1a1a33] hover:ring-1 hover:ring-crimson/50 transition-all flex items-center gap-2" href="#contact">
+<span>Schedule Site Survey</span>
+<span class="material-symbols-outlined text-[18px] text-crimson">arrow_forward</span>
+</a>
+<a class="px-6 py-3 rounded-md bg-white hover:bg-slate-50 text-midnight font-semibold text-sm border border-slate-300 transition-all shadow-2xs" href="#services">
+                    Explore Service Scopes
+                  </a>
+</div>
+<div class="flex items-center gap-3 pt-3 border-t border-slate-200/80 w-full text-xs text-slate-500">
+<span class="inline-flex items-center gap-1.5 font-semibold text-slate-800">
+<span class="material-symbols-outlined text-crimson text-[16px]">verified</span> OEM Certified
+                  </span>
+<span class="text-slate-300">•</span>
+<span>Direct Hotline: <strong class="text-midnight font-semibold">+1 (800) 555-7226</strong></span>
+</div>
+</div>
+<!-- Media Graphic -->
+<div class="lg:col-span-6 relative">
+<div class="relative rounded-xl overflow-hidden shadow-xl border border-border-subtle bg-slate-100 aspect-[16/10]">
+<img alt="IT Engineers consulting client in enterprise server environment" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VsvAN25SyhNRr9al47_zqsJJqc22_4eCGnBynJOqLGl9KD90nP2Nl-93nbatZRrcCISuVwX8Txgkq0PKSZpsxBRyvZllhWULtE_D_cD5jh8assoxQWGgGdaUhfHiHEWZOAreVMfDL96Rzo8_MSKBTz6O7XgxjaOsiLFEhX1eW-E0ZZ8Xkyh7cYG1wczH8fajNyTph3w2SiC07rVr98hy6hR42tZA1MQzFnKFFrxaaKWoYzbk603PxS0eQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-midnight/20 to-transparent"></div>
+</div>
+<!-- Floating Glassmorphism Metric Card -->
+<div class="absolute -bottom-5 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md bg-white/95 backdrop-blur-md p-4 rounded-lg shadow-xl border border-slate-200/90 flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-md bg-midnight text-white flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px] text-crimson">verified_user</span>
+</div>
+<div class="text-xs">
+<p class="font-bold text-slate-900 text-sm">99.8% SLA Adherence</p>
+<p class="text-slate-500 font-medium">Guaranteed 2-Hour Rapid On-Site Response Window</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SLIDE 2 -->
+<div class="carousel-slide" data-slide-index="1">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+<!-- Content -->
+<div class="lg:col-span-6 flex flex-col items-start gap-5">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-border-subtle shadow-2xs">
+<span class="w-2 h-2 rounded-full bg-crimson"></span>
+<span class="text-[11px] font-bold tracking-[0.08em] uppercase text-midnight">Certified Commercial Security</span>
+</div>
+<h2 class="text-3xl sm:text-4xl lg:text-[44px] font-bold text-midnight leading-[1.16] tracking-tight">
+                  Enterprise CCTV &amp; AI-Enabled Premises Surveillance
+                </h2>
+<p class="text-slate-600 text-[15px] sm:text-[16px] leading-[1.6] max-w-xl font-normal">
+                  High-definition IP surveillance cameras, secure local NVR storage arrays, and integrated access control protecting your workforce, facilities, and physical assets 24/7.
+                </p>
+<div class="flex flex-wrap items-center gap-3.5 pt-2">
+<a class="px-6 py-3 rounded-md bg-midnight text-white font-semibold text-sm shadow-sm hover:bg-[#1a1a33] hover:ring-1 hover:ring-crimson/50 transition-all flex items-center gap-2" href="#contact">
+<span>Request Security Blueprint</span>
+<span class="material-symbols-outlined text-[18px] text-crimson">videocam</span>
+</a>
+<a class="px-6 py-3 rounded-md bg-white hover:bg-slate-50 text-midnight font-semibold text-sm border border-slate-300 transition-all shadow-2xs" href="#security">
+                    View Camera Packages
+                  </a>
+</div>
+<div class="flex items-center gap-3 pt-3 border-t border-slate-200/80 w-full text-xs text-slate-500">
+<span class="inline-flex items-center gap-1.5 font-semibold text-slate-800">
+<span class="material-symbols-outlined text-crimson text-[16px]">shield</span> Encrypted NVR &amp; Mobile Viewing
+                  </span>
+<span class="text-slate-300">•</span>
+<span>Hikvision &amp; CP Plus Certified Partner</span>
+</div>
+</div>
+<!-- Media Graphic -->
+<div class="lg:col-span-6 relative">
+<div class="relative rounded-xl overflow-hidden shadow-xl border border-border-subtle bg-slate-100 aspect-[16/10]">
+<img alt="Commercial Building Security Operations Center with CCTV Video Wall" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS7fOpprYfm2aomUOKXvk0MnoU8qB3udUpekOaTU7G6FC3_mGeG2Li3ZVxX7nKt1E-SDcuFjKgl7esTwJ4Vx5_-SUxEvGhN2LdO2vr0oAUEjcbBlKG3K-KGN5Ll9pCtGQBbObLYVjrezaFsyjKyGIKQs4vaDQcj1DsHJuTJWccEiFHXU4LFOgUug_u27JdoPDlsnckEiLSAZdLhnCu-b5b6DpEdgkIAW7u7UZHBL0OJq8EGUqXhSt9"/>
+<div class="absolute inset-0 bg-gradient-to-t from-midnight/20 to-transparent"></div>
+</div>
+<!-- Floating Glassmorphism Metric Card -->
+<div class="absolute -bottom-5 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md bg-white/95 backdrop-blur-md p-4 rounded-lg shadow-xl border border-slate-200/90 flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-md bg-midnight text-white flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px] text-crimson">camera_outdoor</span>
+</div>
+<div class="text-xs">
+<p class="font-bold text-slate-900 text-sm">Commercial Grade 4K Surveillance</p>
+<p class="text-slate-500 font-medium">Centralized NVR Arrays &amp; Real-time Remote NOC Monitoring</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SLIDE 3 -->
+<div class="carousel-slide" data-slide-index="2">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+<!-- Content -->
+<div class="lg:col-span-6 flex flex-col items-start gap-5">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-border-subtle shadow-2xs">
+<span class="w-2 h-2 rounded-full bg-crimson"></span>
+<span class="text-[11px] font-bold tracking-[0.08em] uppercase text-midnight">Structured Cabling &amp; Network Architecture</span>
+</div>
+<h2 class="text-3xl sm:text-4xl lg:text-[44px] font-bold text-midnight leading-[1.16] tracking-tight">
+                  Certified Structured Cabling &amp; High-Density Core Switching
+                </h2>
+<p class="text-slate-600 text-[15px] sm:text-[16px] leading-[1.6] max-w-xl font-normal">
+                  Fluke-tested Cat6/Cat6A &amp; fiber optic backbone installations, organized server rack dress-up, patch panels, and enterprise Wi-Fi for uninterrupted business operations.
+                </p>
+<div class="flex flex-wrap items-center gap-3.5 pt-2">
+<a class="px-6 py-3 rounded-md bg-midnight text-white font-semibold text-sm shadow-sm hover:bg-[#1a1a33] hover:ring-1 hover:ring-crimson/50 transition-all flex items-center gap-2" href="#contact">
+<span>Book Cabling Audit</span>
+<span class="material-symbols-outlined text-[18px] text-crimson">settings_ethernet</span>
+</a>
+<a class="px-6 py-3 rounded-md bg-white hover:bg-slate-50 text-midnight font-semibold text-sm border border-slate-300 transition-all shadow-2xs" href="#cabling">
+                    Download Capability Specs
+                  </a>
+</div>
+<div class="flex items-center gap-3 pt-3 border-t border-slate-200/80 w-full text-xs text-slate-500">
+<span class="inline-flex items-center gap-1.5 font-semibold text-slate-800">
+<span class="material-symbols-outlined text-crimson text-[16px]">task_alt</span> Certified Fluke Link Testing
+                  </span>
+<span class="text-slate-300">•</span>
+<span>TIA/EIA-568-C.2 Standards Compliant</span>
+</div>
+</div>
+<!-- Media Graphic -->
+<div class="lg:col-span-6 relative">
+<div class="relative rounded-xl overflow-hidden shadow-xl border border-border-subtle bg-slate-100 aspect-[16/10]">
+<img alt="Engineers configuring structured server racks" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHjouPIhfxXOXlDRJVa27enF8z65a8Xbq_vJK_rg5q5Z9QD44BRnxXwKTpM3_5Zk-7HuAMumccMSpNQcrRRtkBbNOcWf_sn6L7K-sQr5BJuyeTZhFYRoC6alMIEomT32uayM0c5VCSJ55hx6HY3kGi2-iEH2e-qQS_4YVSz30vRKBhWhrQClrbnWZJY-3gu9GBYODNtt9jAH7wjvY3kdCHz7Juqc3rseJmSJ18vCZKMjGCcbotNqMw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-midnight/20 to-transparent"></div>
+</div>
+<!-- Floating Glassmorphism Metric Card -->
+<div class="absolute -bottom-5 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md bg-white/95 backdrop-blur-md p-4 rounded-lg shadow-xl border border-slate-200/90 flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-md bg-midnight text-white flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px] text-crimson">cable</span>
+</div>
+<div class="text-xs">
+<p class="font-bold text-slate-900 text-sm">Clean Rack Dressing Guarantee</p>
+<p class="text-slate-500 font-medium">Fluke Certified Link Warranty &amp; Color-Coded Patch Documentation</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Carousel Navigation Controls Bar -->
+<div class="mt-14 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-200/80">
+<!-- Slide Pill Indicators -->
+<div class="flex items-center gap-3" id="carousel-indicators">
+<button aria-label="Go to Slide 1" class="indicator-btn group text-left focus:outline-none" onclick="goToSlide(0)">
+<span class="text-[11px] font-semibold tracking-wider uppercase block text-midnight group-hover:text-crimson transition-colors">01 • IT Infrastructure &amp; AMC</span>
+<div class="w-28 sm:w-36 h-1.5 bg-slate-200 rounded-full mt-1.5 overflow-hidden">
+<div class="progress-bar h-full bg-crimson rounded-full progress-bar-active" style="width: 100%;"></div>
+</div>
+</button>
+<button aria-label="Go to Slide 2" class="indicator-btn group text-left focus:outline-none opacity-50 hover:opacity-100 transition-opacity" onclick="goToSlide(1)">
+<span class="text-[11px] font-semibold tracking-wider uppercase block text-slate-600 group-hover:text-crimson transition-colors">02 • CCTV &amp; Security</span>
+<div class="w-28 sm:w-36 h-1.5 bg-slate-200 rounded-full mt-1.5 overflow-hidden">
+<div class="progress-bar h-full bg-crimson rounded-full" style="width: 0%;"></div>
+</div>
+</button>
+<button aria-label="Go to Slide 3" class="indicator-btn group text-left focus:outline-none opacity-50 hover:opacity-100 transition-opacity" onclick="goToSlide(2)">
+<span class="text-[11px] font-semibold tracking-wider uppercase block text-slate-600 group-hover:text-crimson transition-colors">03 • Structured Cabling</span>
+<div class="w-28 sm:w-36 h-1.5 bg-slate-200 rounded-full mt-1.5 overflow-hidden">
+<div class="progress-bar h-full bg-crimson rounded-full" style="width: 0%;"></div>
+</div>
+</button>
+</div>
+<!-- Arrows -->
+<div class="flex items-center gap-2">
+<button aria-label="Previous Slide" class="w-10 h-10 rounded-md border border-slate-300 hover:border-midnight bg-white text-slate-700 hover:text-midnight flex items-center justify-center transition-colors shadow-2xs focus:outline-none" onclick="prevSlide()">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<button aria-label="Next Slide" class="w-10 h-10 rounded-md border border-slate-300 hover:border-midnight bg-white text-slate-700 hover:text-midnight flex items-center justify-center transition-colors shadow-2xs focus:outline-none" onclick="nextSlide()">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- AUTHORIZED OEM ALLIANCE STRIP -->
+<section class="py-9 bg-surface-low border-b border-border-subtle">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<p class="text-center text-[11px] font-bold uppercase tracking-[0.09em] text-slate-500 mb-6">
+          Authorized Technology Alliances &amp; Enterprise Hardware OEM Ecosystem
+        </p>
+<div class="flex flex-wrap items-center justify-center gap-8 sm:gap-12 lg:gap-16 opacity-75 grayscale hover:grayscale-0 transition-all duration-300">
+<div class="flex items-center gap-2.5 text-midnight font-bold text-sm tracking-wider hover:text-[#049fd9] transition-colors">
+<span class="material-symbols-outlined text-[22px] text-midnight">router</span> CISCO
+          </div>
+<div class="flex items-center gap-2.5 text-midnight font-bold text-sm tracking-wider hover:text-[#007db8] transition-colors">
+<span class="material-symbols-outlined text-[22px] text-midnight">computer</span> DELL TECHNOLOGIES
+          </div>
+<div class="flex items-center gap-2.5 text-midnight font-bold text-sm tracking-wider hover:text-[#009688] transition-colors">
+<span class="material-symbols-outlined text-[22px] text-midnight">print</span> HP ENTERPRISE
+          </div>
+<div class="flex items-center gap-2.5 text-midnight font-bold text-sm tracking-wider hover:text-[#e4002b] transition-colors">
+<span class="material-symbols-outlined text-[22px] text-midnight">videocam</span> HIKVISION
+          </div>
+<div class="flex items-center gap-2.5 text-midnight font-bold text-sm tracking-wider hover:text-[#e2231a] transition-colors">
+<span class="material-symbols-outlined text-[22px] text-midnight">laptop_chromebook</span> LENOVO
+          </div>
+<div class="flex items-center gap-2.5 text-midnight font-bold text-sm tracking-wider hover:text-[#3dcd58] transition-colors">
+<span class="material-symbols-outlined text-[22px] text-midnight">bolt</span> APC BY SCHNEIDER
+          </div>
+</div>
+</div>
+</section>
+<!-- CORE SERVICES SECTION (3 Pillars) -->
+<section class="py-20 lg:py-24 bg-white" id="services">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-low border border-border-subtle mb-3">
+<span class="w-1.5 h-1.5 rounded-full bg-crimson"></span>
+<span class="text-[11px] font-bold uppercase tracking-[0.08em] text-midnight">Our Core Capabilities</span>
+</div>
+<h2 class="text-3xl sm:text-[36px] font-bold text-midnight tracking-tight leading-[1.2]">
+            Comprehensive Corporate IT &amp; Security Services
+          </h2>
+<p class="text-slate-600 text-[15px] sm:text-[16px] leading-[1.6] mt-3">
+            Dependable, single-source IT services engineered to keep your corporate networks resilient, hardware running, and facilities secure.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Pillar 1 -->
+<div class="p-8 rounded-xl bg-white border border-border-subtle shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group" id="cabling">
+<div>
+<div class="w-12 h-12 rounded-lg bg-surface-low border border-border-subtle flex items-center justify-center mb-6 relative group-hover:border-crimson/30 transition-colors">
+<span class="material-symbols-outlined text-[26px] text-midnight group-hover:text-crimson transition-colors">hub</span>
+<span class="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-crimson opacity-0 group-hover:opacity-100 transition-opacity"></span>
+</div>
+<h3 class="text-xl font-bold text-midnight mb-3 tracking-tight">Commercial Networking &amp; Cabling</h3>
+<p class="text-[14px] text-slate-600 leading-relaxed mb-6 font-normal">
+                End-to-end network architecture from office desk termination drops to primary server racks. Certified Cat6A/Fiber lines with high-density core switching.
+              </p>
+<ul class="space-y-3 text-[14px] text-slate-600 mb-6">
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-crimson text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Fluke-certified Structured Cat6 &amp; Fiber cabling</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-crimson text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Office-wide high-density Wi-Fi 6E access points</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-crimson text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Managed core VLAN &amp; firewall routing configurations</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-crimson text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Server rack cleanup, dressing &amp; patch documentation</span>
+</li>
+</ul>
+</div>
+<a class="inline-flex items-center gap-1.5 text-sm font-semibold text-midnight group-hover:text-crimson transition-colors pt-4 border-t border-slate-100" href="#contact">
+<span>Request Cabling Assessment</span>
+<span class="material-symbols-outlined text-[16px] text-crimson transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+<!-- Pillar 2 -->
+<div class="p-8 rounded-xl bg-white border border-border-subtle shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group" id="hardware-amc">
+<div>
+<div class="w-12 h-12 rounded-lg bg-surface-low border border-border-subtle flex items-center justify-center mb-6 relative group-hover:border-crimson/30 transition-colors">
+<span class="material-symbols-outlined text-[26px] text-midnight group-hover:text-crimson transition-colors">dns</span>
+<span class="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-crimson opacity-0 group-hover:opacity-100 transition-opacity"></span>
+</div>
+<h3 class="text-xl font-bold text-midnight mb-3 tracking-tight">Computer Hardware Sales &amp; AMC</h3>
+<p class="text-[14px] text-slate-600 leading-relaxed mb-6 font-normal">
+                Multi-brand computer fleet procurement and tailored Annual Maintenance Contracts with guaranteed resolution SLAs and genuine factory parts.
+              </p>
+<ul class="space-y-3 text-[14px] text-slate-600 mb-6">
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-crimson text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Desktops, enterprise laptops &amp; rack server fleets</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-crimson text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Comprehensive (Parts + Labor) &amp; Non-Comp AMC</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-crimson text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Scheduled monthly &amp; quarterly preventive maintenance</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-crimson text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Dedicated on-site resident engineers for corporate HQs</span>
+</li>
+</ul>
+</div>
+<a class="inline-flex items-center gap-1.5 text-sm font-semibold text-midnight group-hover:text-crimson transition-colors pt-4 border-t border-slate-100" href="#contact">
+<span>View AMC Service Plans</span>
+<span class="material-symbols-outlined text-[16px] text-crimson transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+<!-- Pillar 3 -->
+<div class="p-8 rounded-xl bg-white border border-border-subtle shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group" id="security">
+<div>
+<div class="w-12 h-12 rounded-lg bg-surface-low border border-border-subtle flex items-center justify-center mb-6 relative group-hover:border-crimson/30 transition-colors">
+<span class="material-symbols-outlined text-[26px] text-midnight group-hover:text-crimson transition-colors">videocam</span>
+<span class="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-crimson opacity-0 group-hover:opacity-100 transition-opacity"></span>
+</div>
+<h3 class="text-xl font-bold text-midnight mb-3 tracking-tight">Commercial CCTV &amp; Security</h3>
+<p class="text-[14px] text-slate-600 leading-relaxed mb-6 font-normal">
+                Industrial-grade surveillance networks, perimeter security, and integrated biometric access systems designed for total compliance and physical oversight.
+              </p>
+<ul class="space-y-3 text-[14px] text-slate-600 mb-6">
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-crimson text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Indoor/outdoor 4K IP cameras with AI perimeter detection</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-crimson text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>High-capacity NVR matrix with 30-90 day retention</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-crimson text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Multi-platform mobile &amp; command desktop client sync</span>
+</li>
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-crimson text-[18px] shrink-0 mt-0.5">check_circle</span>
+<span>Biometric time-attendance &amp; RFID electronic access locks</span>
+</li>
+</ul>
+</div>
+<a class="inline-flex items-center gap-1.5 text-sm font-semibold text-midnight group-hover:text-crimson transition-colors pt-4 border-t border-slate-100" href="#contact">
+<span>Get Security System Quote</span>
+<span class="material-symbols-outlined text-[16px] text-crimson transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- WHY BUSINESSES TRUST SCANTECH -->
+<section class="py-20 lg:py-24 bg-surface-low border-y border-border-subtle" id="why-scantech">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-border-subtle mb-3">
+<span class="w-1.5 h-1.5 rounded-full bg-crimson"></span>
+<span class="text-[11px] font-bold uppercase tracking-[0.08em] text-midnight">Institutional Reliability</span>
+</div>
+<h2 class="text-3xl sm:text-[36px] font-bold text-midnight tracking-tight leading-[1.2]">
+            Why Enterprises Partner with Scantech
+          </h2>
+<p class="text-slate-600 text-[15px] sm:text-[16px] leading-[1.6] mt-3">
+            We deliver disciplined execution, direct engineering access, and contract clarity without vendor ambiguity.
+          </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="p-6 rounded-lg bg-white border border-border-subtle shadow-xs hover:border-slate-400 hover:shadow-md transition-all">
+<div class="w-11 h-11 rounded-md bg-surface-mid border border-border-subtle flex items-center justify-center mb-5 text-midnight">
+<span class="material-symbols-outlined text-[24px]">engineering</span>
+</div>
+<h4 class="font-bold text-base text-midnight mb-2 tracking-tight">Certified Field Engineers</h4>
+<p class="text-[13px] text-slate-600 leading-relaxed font-normal">
+              Directly employed, background-verified engineers carrying Cisco, Dell, and Microsoft certifications for prompt on-site accountability.
+            </p>
+</div>
+<div class="p-6 rounded-lg bg-white border border-border-subtle shadow-xs hover:border-slate-400 hover:shadow-md transition-all">
+<div class="w-11 h-11 rounded-md bg-surface-mid border border-border-subtle flex items-center justify-center mb-5 text-midnight">
+<span class="material-symbols-outlined text-[24px]">timer</span>
+</div>
+<h4 class="font-bold text-base text-midnight mb-2 tracking-tight">Guaranteed SLA Response</h4>
+<p class="text-[13px] text-slate-600 leading-relaxed font-normal">
+              Formal 2-hour and 4-hour emergency on-site dispatch windows with standby inventory replacements to keep corporate workflows continuous.
+            </p>
+</div>
+<div class="p-6 rounded-lg bg-white border border-border-subtle shadow-xs hover:border-slate-400 hover:shadow-md transition-all">
+<div class="w-11 h-11 rounded-md bg-surface-mid border border-border-subtle flex items-center justify-center mb-5 text-midnight">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+<h4 class="font-bold text-base text-midnight mb-2 tracking-tight">Authorized OEM Procurement</h4>
+<p class="text-[13px] text-slate-600 leading-relaxed font-normal">
+              Zero grey-market risk. Every motherboard, processor, switch, and camera is sourced through official manufacturer tier-1 distributor channels.
+            </p>
+</div>
+<div class="p-6 rounded-lg bg-white border border-border-subtle shadow-xs hover:border-slate-400 hover:shadow-md transition-all">
+<div class="w-11 h-11 rounded-md bg-surface-mid border border-border-subtle flex items-center justify-center mb-5 text-midnight">
+<span class="material-symbols-outlined text-[24px]">receipt_long</span>
+</div>
+<h4 class="font-bold text-base text-midnight mb-2 tracking-tight">Transparent Fixed Pricing</h4>
+<p class="text-[13px] text-slate-600 leading-relaxed font-normal">
+              Unambiguous annual contracts, itemized scopes of work, dedicated account managers, and clearly defined renewal terms with zero hidden fees.
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- CLIENT TESTIMONIALS & CASE STUDIES -->
+<section class="py-20 lg:py-24 bg-white" id="case-studies">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-low border border-border-subtle mb-3">
+<span class="w-1.5 h-1.5 rounded-full bg-crimson"></span>
+<span class="text-[11px] font-bold uppercase tracking-[0.08em] text-midnight">Proven Track Record</span>
+</div>
+<h2 class="text-3xl sm:text-[36px] font-bold text-midnight tracking-tight leading-[1.2]">
+            Trusted by Corporate Infrastructure Heads
+          </h2>
+<p class="text-slate-600 text-[15px] sm:text-[16px] leading-[1.6] mt-3">
+            Executive feedback from operations and IT leaders who depend on Scantech for uptime and perimeter security.
+          </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+<!-- Testimonial 1 -->
+<div class="p-8 sm:p-9 rounded-xl bg-surface-low border border-border-subtle flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="space-y-4">
+<div class="flex items-center gap-1 text-crimson text-sm">
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+</div>
+<p class="text-slate-700 text-[15px] sm:text-[16px] leading-[1.7] italic">
+                “Scantech re-architected our 4-floor corporate headquarters cabling layout over a single planned weekend. Zero dropped terminations, impeccably dressed racks, and Fluke certified link testing across 380 nodes. Their response time during emergencies is genuinely unequaled.”
+              </p>
+</div>
+<div class="flex items-center gap-3.5 pt-6 mt-6 border-t border-slate-200">
+<div class="w-10 h-10 rounded-full bg-midnight text-white flex items-center justify-center font-bold text-xs tracking-wider">
+                RK
+              </div>
+<div>
+<p class="font-bold text-sm text-midnight">Rajesh Khanna</p>
+<p class="text-xs text-slate-500">VP of Technology Operations, Apex Financial Consultants</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="p-8 sm:p-9 rounded-xl bg-surface-low border border-border-subtle flex flex-col justify-between hover:shadow-md transition-shadow">
+<div class="space-y-4">
+<div class="flex items-center gap-1 text-crimson text-sm">
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+</div>
+<p class="text-slate-700 text-[15px] sm:text-[16px] leading-[1.7] italic">
+                “We run 160 workstations and 32 IP cameras on a Comprehensive AMC with Scantech. Their resident engineer handles preventive diagnostics proactively so downtime is practically eliminated. It is rare to find such high accountability in corporate IT.”
+              </p>
+</div>
+<div class="flex items-center gap-3.5 pt-6 mt-6 border-t border-slate-200">
+<div class="w-10 h-10 rounded-full bg-crimson text-white flex items-center justify-center font-bold text-xs tracking-wider">
+                MS
+              </div>
+<div>
+<p class="font-bold text-sm text-midnight">Meera Sharma</p>
+<p class="text-xs text-slate-500">Head of Facilities &amp; Administration, Sterling Logistics Hub</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CONSULTATION & ON-SITE VISIT FORM -->
+<section class="py-20 lg:py-24 bg-surface-low border-t border-border-subtle" id="contact">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-start">
+<!-- Left Details -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-border-subtle w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-crimson"></span>
+<span class="text-[11px] font-bold uppercase tracking-[0.08em] text-midnight">Technical Engagement</span>
+</div>
+<h2 class="text-3xl sm:text-[36px] font-bold text-midnight tracking-tight leading-[1.2]">
+              Schedule an On-Site Corporate Assessment
+            </h2>
+<p class="text-slate-600 text-[15px] leading-[1.6]">
+              Whether expanding an existing workstation floor, upgrading outdated CCTV arrays, or negotiating a consolidated hardware AMC, our senior infrastructure engineers are available for physical site surveys.
+            </p>
+<div class="space-y-4 pt-3 border-t border-slate-200">
+<div class="flex items-start gap-3.5">
+<div class="w-8 h-8 rounded-md bg-white border border-border-subtle flex items-center justify-center shrink-0 text-crimson">
+<span class="material-symbols-outlined text-[19px]">location_on</span>
+</div>
+<div>
+<p class="font-semibold text-sm text-midnight">Corporate Headquarters</p>
+<p class="text-xs sm:text-sm text-slate-500">Scantech Info Systems, Technology Plaza, Suite 400</p>
+</div>
+</div>
+<div class="flex items-start gap-3.5">
+<div class="w-8 h-8 rounded-md bg-white border border-border-subtle flex items-center justify-center shrink-0 text-crimson">
+<span class="material-symbols-outlined text-[19px]">call</span>
+</div>
+<div>
+<p class="font-semibold text-sm text-midnight">Dedicated Dispatch &amp; Support</p>
+<p class="text-xs sm:text-sm text-slate-500">
+<a class="hover:text-crimson font-medium text-midnight" href="tel:18005557226">+1 (800) 555-7226</a> • Mon - Sat: 8:30 AM - 7:30 PM
+                  </p>
+</div>
+</div>
+<div class="flex items-start gap-3.5">
+<div class="w-8 h-8 rounded-md bg-white border border-border-subtle flex items-center justify-center shrink-0 text-crimson">
+<span class="material-symbols-outlined text-[19px]">mail</span>
+</div>
+<div>
+<p class="font-semibold text-sm text-midnight">Direct Engineering Inquiry</p>
+<p class="text-xs sm:text-sm text-slate-500">
+<a class="hover:text-crimson font-medium text-midnight" href="mailto:contact@scantechsystems.com">contact@scantechsystems.com</a>
+</p>
+</div>
+</div>
+</div>
+<div class="p-4 rounded-lg bg-white border border-border-subtle flex items-center gap-3 shadow-2xs mt-2">
+<span class="material-symbols-outlined text-crimson text-[24px]">verified_user</span>
+<p class="text-xs text-slate-600 leading-tight">
+<strong class="text-midnight block font-semibold mb-0.5">SLA Guaranteed Response</strong>
+                All online inquiries receive callback from a licensed systems engineer within 2 business hours.
+              </p>
+</div>
+</div>
+<!-- Right Form Card -->
+<div class="lg:col-span-7 bg-white p-7 sm:p-10 rounded-xl border border-border-subtle shadow-sm relative overflow-hidden">
+<div class="h-1.5 w-full absolute top-0 left-0 bg-gradient-to-r from-midnight via-crimson to-midnight"></div>
+<h3 class="text-xl font-bold text-midnight mb-1.5 tracking-tight">Request an On-Site Consultation</h3>
+<p class="text-sm text-slate-500 mb-6 font-normal">Provide your facility scope below for a prompt, structured technical assessment.</p>
+<form class="space-y-4" onsubmit="event.preventDefault(); document.getElementById('consultSuccess').classList.remove('hidden'); this.reset();">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-semibold text-midnight mb-1.5" for="fullName">Full Name *</label>
+<input class="w-full px-3.5 py-2.5 rounded-md border border-slate-300 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-midnight focus:border-midnight" id="fullName" placeholder="Johnathan Vance" required="" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-semibold text-midnight mb-1.5" for="companyName">Company / Enterprise Name *</label>
+<input class="w-full px-3.5 py-2.5 rounded-md border border-slate-300 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-midnight focus:border-midnight" id="companyName" placeholder="Apex Logistics Partners" required="" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-semibold text-midnight mb-1.5" for="workEmail">Business Email *</label>
+<input class="w-full px-3.5 py-2.5 rounded-md border border-slate-300 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-midnight focus:border-midnight" id="workEmail" placeholder="j.vance@apexlogistics.com" required="" type="email"/>
+</div>
+<div>
+<label class="block text-xs font-semibold text-midnight mb-1.5" for="phoneNumber">Direct Phone *</label>
+<input class="w-full px-3.5 py-2.5 rounded-md border border-slate-300 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-midnight focus:border-midnight" id="phoneNumber" placeholder="+1 (555) 234-8901" required="" type="tel"/>
+</div>
+</div>
+<div>
+<label class="block text-xs font-semibold text-midnight mb-1.5" for="serviceSelect">Primary Service Requirement</label>
+<select class="w-full px-3.5 py-2.5 rounded-md border border-slate-300 text-sm text-slate-800 focus:outline-none focus:ring-1 focus:ring-midnight focus:border-midnight bg-white" id="serviceSelect">
+<option value="amc">Comprehensive Computer Hardware AMC (Desktops &amp; Servers)</option>
+<option value="networking">Structured Cabling (Cat6/Fiber) &amp; Enterprise Wi-Fi</option>
+<option value="cctv">Commercial CCTV Security &amp; Biometric Access Setup</option>
+<option value="turnkey">Turnkey Complete Office IT Infrastructure Deployment</option>
+<option value="audit">Site IT &amp; Security Infrastructure Health Audit</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-semibold text-midnight mb-1.5" for="projectScope">Estimated Scale &amp; Office Requirements</label>
+<textarea class="w-full px-3.5 py-2.5 rounded-md border border-slate-300 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-midnight focus:border-midnight" id="projectScope" placeholder="Briefly specify node count, workstation inventory, camera count, or office location..." rows="3"></textarea>
+</div>
+<button class="w-full py-3.5 px-6 rounded-md bg-midnight text-white font-semibold text-sm hover:bg-[#1a1a33] hover:ring-1 hover:ring-crimson/50 transition-all shadow-sm flex items-center justify-center gap-2 group" type="submit">
+<span>Submit Consultation Request</span>
+<span class="material-symbols-outlined text-[18px] text-crimson group-hover:translate-x-1 transition-transform">send</span>
+</button>
+<div class="hidden p-3 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-medium text-center" id="consultSuccess">
+                Inquiry received. A Scantech systems engineer will review your scope and contact you within 2 hours.
+              </div>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- GROUNDED CLEAN CORPORATE FOOTER -->
+<footer class="bg-midnight text-slate-300 border-t border-[#23233c]">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+<!-- Corporate Identity with SVG Logo -->
+<div class="lg:col-span-2 flex flex-col gap-4">
+<a class="inline-block w-48 focus:outline-none" href="#">
+<!-- Filtered/inversed container for dark footer background -->
+<div class="bg-white/95 p-2 rounded-md inline-block">
+<img alt="Scantech Info Systems" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VXk4GLAIvYzjW9AAR1Qm4coUxHjmWj1FD5y_ycXLoIRFe5pqHSwcLIo2oyjuzNwKmKL3oQzKpWv6AeWf24ICu9r1TzK4ObB7dPTQXo1NssHBT_4Lxp_m3NI0PnzjQmIKwuV1aH5Htq83fTnu_5ncJRhmUJpDyM7Npc1MWQ9YX8vS9mak4_zcL7Cz5zRQEqwmHAZ_t48OIqtXxHTrvz9lwbBNNb-2w2QDKo-8Li6tFPXjldEEiNe4Yc-tg"/>
+</div>
+</a>
+<p class="text-[13px] text-slate-400 leading-relaxed max-w-sm mt-1">
+            Scantech Info Systems provides turnkey IT networking architecture, enterprise computer maintenance contracts (AMC), and institutional surveillance installations for corporations and growing organizations.
+          </p>
+<div class="text-xs text-slate-400 space-y-1.5 pt-2">
+<p><strong class="text-white">Central Support:</strong> <span class="text-crimson font-semibold">+1 (800) 555-7226</span></p>
+<p><strong class="text-white">Email:</strong> contact@scantechsystems.com</p>
+<p><strong class="text-white">Working Hours:</strong> Mon – Sat: 8:30 AM – 7:30 PM</p>
+</div>
+</div>
+<!-- Column 1: Services -->
+<div class="flex flex-col gap-3">
+<p class="font-bold text-sm text-white tracking-wide uppercase text-xs">Solutions &amp; Services</p>
+<ul class="space-y-2.5 text-xs text-slate-400">
+<li><a class="hover:text-crimson transition-colors" href="#cabling">Structured Cat6 &amp; Fiber Cabling</a></li>
+<li><a class="hover:text-crimson transition-colors" href="#cabling">Commercial Wi-Fi 6E Deployments</a></li>
+<li><a class="hover:text-crimson transition-colors" href="#hardware-amc">Workstation &amp; Server Sales</a></li>
+<li><a class="hover:text-crimson transition-colors" href="#hardware-amc">Annual Maintenance (AMC) Plans</a></li>
+<li><a class="hover:text-crimson transition-colors" href="#security">Commercial CCTV Surveillance</a></li>
+<li><a class="hover:text-crimson transition-colors" href="#security">Biometric RFID Access Control</a></li>
+</ul>
+</div>
+<!-- Column 2: Hardware OEMs -->
+<div class="flex flex-col gap-3">
+<p class="font-bold text-sm text-white tracking-wide uppercase text-xs">OEM Alliances</p>
+<ul class="space-y-2.5 text-xs text-slate-400">
+<li><a class="hover:text-crimson transition-colors" href="#hardware-amc">Dell PowerEdge Rack Servers</a></li>
+<li><a class="hover:text-crimson transition-colors" href="#hardware-amc">HP Enterprise ProLiant</a></li>
+<li><a class="hover:text-crimson transition-colors" href="#cabling">Cisco Catalyst Managed Switches</a></li>
+<li><a class="hover:text-crimson transition-colors" href="#security">Hikvision 4K IP Systems</a></li>
+<li><a class="hover:text-crimson transition-colors" href="#hardware-amc">APC Smart-UPS Modular Power</a></li>
+<li><a class="hover:text-crimson transition-colors" href="#hardware-amc">Commercial Workstation Fleets</a></li>
+</ul>
+</div>
+<!-- Column 3: Corporate Info -->
+<div class="flex flex-col gap-3">
+<p class="font-bold text-sm text-white tracking-wide uppercase text-xs">Company</p>
+<ul class="space-y-2.5 text-xs text-slate-400">
+<li><a class="hover:text-crimson transition-colors" href="#why-scantech">About Scantech Info Systems</a></li>
+<li><a class="hover:text-crimson transition-colors" href="#why-scantech">Engineering Standards &amp; QA</a></li>
+<li><a class="hover:text-crimson transition-colors" href="#case-studies">Executive Client Testimonials</a></li>
+<li><a class="hover:text-crimson transition-colors" href="#contact">Schedule On-Site Survey</a></li>
+<li><a class="hover:text-crimson transition-colors" href="#contact">Emergency Dispatch Escalation</a></li>
+<li><a class="hover:text-crimson transition-colors" href="#">Corporate Compliance &amp; ISO</a></li>
+</ul>
+</div>
+</div>
+<!-- Bottom Bar -->
+<div class="mt-12 pt-8 border-t border-[#23233c] flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+<p>© 2025 Scantech Info Systems Inc. All rights reserved.</p>
+<div class="flex items-center gap-6">
+<a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-white transition-colors" href="#">SLA &amp; Response Policy</a>
+<a class="hover:text-white transition-colors" href="#">Privacy Governance</a>
+<a class="hover:text-crimson transition-colors" href="#contact">Emergency Dispatch</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- CAROUSEL SCRIPT -->
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const indicatorButtons = document.querySelectorAll('#carousel-indicators .indicator-btn');
+    const totalSlides = slides.length;
+    let autoPlayInterval = null;
+
+    function renderSlide(index) {
+      currentSlide = (index + totalSlides) % totalSlides;
+      
+      slides.forEach((slide, i) => {
+        if (i === currentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+
+      indicatorButtons.forEach((btn, i) => {
+        const textSpan = btn.querySelector('span');
+        const progressBar = btn.querySelector('.progress-bar');
+        
+        if (i === currentSlide) {
+          btn.classList.remove('opacity-50');
+          textSpan.classList.add('text-midnight');
+          textSpan.classList.remove('text-slate-600');
+          progressBar.style.width = '100%';
+          progressBar.classList.remove('progress-bar-active');
+          void progressBar.offsetWidth; // trigger reflow
+          progressBar.classList.add('progress-bar-active');
+        } else {
+          btn.classList.add('opacity-50');
+          textSpan.classList.remove('text-midnight');
+          textSpan.classList.add('text-slate-600');
+          progressBar.style.width = '0%';
+          progressBar.classList.remove('progress-bar-active');
+        }
+      });
+    }
+
+    function nextSlide() {
+      renderSlide(currentSlide + 1);
+      resetAutoPlay();
+    }
+
+    function prevSlide() {
+      renderSlide(currentSlide - 1);
+      resetAutoPlay();
+    }
+
+    function goToSlide(index) {
+      renderSlide(index);
+      resetAutoPlay();
+    }
+
+    function startAutoPlay() {
+      autoPlayInterval = setInterval(() => {
+        renderSlide(currentSlide + 1);
+      }, 6500);
+    }
+
+    function resetAutoPlay() {
+      clearInterval(autoPlayInterval);
+      startAutoPlay();
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderSlide(0);
+      startAutoPlay();
+    });
+  </script>
+</body></html>

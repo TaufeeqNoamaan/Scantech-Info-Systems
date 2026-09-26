@@ -1,0 +1,108 @@
+# ============================================================================
+# Scantech Info Systems — Cloud Build pipeline
+# ============================================================================
+#
+# WHY THIS FILE EXISTS
+#
+# A Dockerfile-type trigger generates its own implicit build config and offers
+# no way to declare build options. The moment a trigger specifies a custom
+# `service_account`, Cloud Build refuses the default GCS log bucket unless the
+# logging behaviour is stated explicitly — and there is nowhere to state it.
+# That produces exactly this failure:
+#
+#   invalid argument: if 'build.service_account' is specified, the build must
+#   either (a) specify 'build.logs_bucket', (b) use the
+#   REGIONAL_USER_OWNED_BUCKET build.options.default_logs_bucket_behavior
+#   option, or (c) use either CLOUD_LOGGING_ONLY / NONE logging options
+#
+# The `options.logging: CLOUD_LOGGING_ONLY` line below satisfies (c). Point the
+# trigger at this file (Configuration → Cloud Build configuration file) instead
+# of at the Dockerfile.
+#
+# ---------------------------------------------------------------------------
+# BEFORE THE FIRST BUILD
+#
+#   1. Create the Artifact Registry repository once:
+#
+#        gcloud artifacts repositories create scantech \
+#          --repository-format=docker \
+#          --location=asia-south1
+#
+#   2. If the trigger runs as a custom service account, that account needs:
+#        roles/artifactregistry.writer   (to push the image)
+#        roles/logging.logWriter         (to write build logs)
+#
+#   3. Set `_SITE_URL` below — or override it in the trigger — to the real
+#      origin. It is a BUILD arg, not a runtime one: leave it empty and the
+#      deployed site will carry http://localhost:3000 in every canonical tag,
+#      in sitemap.xml and in robots.txt.
+# ---------------------------------------------------------------------------
+
+substitutions:
+  # Mumbai. The nearest region to a Hyderabad-based business — it is the
+  # dominant factor in on-site latency for staff and customers.
+  _REGION: asia-south1
+
+  # Artifact Registry repository name.
+  _REPO: scantech
+
+  # Service / image name.
+  _SERVICE: scantech-info-systems
+
+  # ⚠️ SET THIS. Public origin of the deployed site, e.g.
+  #   https://www.scantechinfosystems.com
+  # It is inlined into the bundle at build time by Next.js, so changing it on
+  # the Cloud Run service afterwards has no effect — the image must be rebuilt.
+  _SITE_URL: ""
+
+steps:
+  # ── Build ────────────────────────────────────────────────────────────────
+  - id: build
+    name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - --build-arg=NEXT_PUBLIC_SITE_URL=${_SITE_URL}
+      # Tagged twice: the immutable commit tag for traceability and rollback,
+      # and `latest` for convenience.
+      - --tag=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}:$SHORT_SHA
+      - --tag=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}:latest
+      - .
+
+  # ── Push ─────────────────────────────────────────────────────────────────
+  - id: push
+    name: gcr.io/cloud-builders/docker
+    args:
+      - push
+      - --all-tags
+      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}
+
+  # ── Deploy (optional) ────────────────────────────────────────────────────
+  # Uncommented, this publishes the freshly built image to Cloud Run. Cloud Run
+  # injects PORT itself, which the image already reads, so no flags are needed
+  # for that. Remove this step if the build is meant only to produce an image.
+  #
+  # - id: deploy
+  #   name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+  #   entrypoint: gcloud
+  #   args:
+  #     - run
+  #     - deploy
+  #     - ${_SERVICE}
+  #     - --image=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPO}/${_SERVICE}:$SHORT_SHA
+  #     - --region=${_REGION}
+  #     - --platform=managed
+  #     - --allow-unauthenticated
+  #     - --port=8080
+
+options:
+  # ── This is the line that clears the error ───────────────────────────────
+  logging: CLOUD_LOGGING_ONLY
+
+  # `npm ci` plus a full Next build is a heavy compile. The larger machine
+  # finishes in a fraction of the time, which more than offsets the higher
+  # per-minute rate. Drop this if build minutes matter more than wall clock.
+  machineType: E2_HIGHCPU_8
+
+# A cold build has to install ~500 MB of node_modules before it can compile
+# anything, so the 10 minute default is uncomfortably close.
+timeout: 1800s
